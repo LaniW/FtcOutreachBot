@@ -1,6 +1,4 @@
-package org.firstinspires.ftc.teamcode; /**
- * Created by Phoebe on 5/29/18.
- */
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
