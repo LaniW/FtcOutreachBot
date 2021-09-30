@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.Range;
 public class Outreach extends OpMode {
     DcMotor right;
     DcMotor left;
-    Servo wings;
+    Servo wings1;
 
     public Outreach() {
     }
@@ -21,7 +21,7 @@ public class Outreach extends OpMode {
     public void init() {
         right = hardwareMap.dcMotor.get("right");
         left = hardwareMap.dcMotor.get("left");
-        wings = hardwareMap.servo.get("wings");
+        wings1 = hardwareMap.servo.get("wings");
 
         right.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -42,13 +42,13 @@ public class Outreach extends OpMode {
 
         //uses gamepad to control1 wing position
         if (gamepad1.a) {
-            wings.setPosition(.1);
+            wings1.setPosition(.1);
         }
         //while robot is running, wings open
         else if (gamepad1LeftY != 0 && gamepad1RightY != 0) {
-            wings.setPosition(.1);
+            wings1.setPosition(.1);
         } else {
-            wings.setPosition(.4);
+            wings1.setPosition(.4);
         }
     }
 }
