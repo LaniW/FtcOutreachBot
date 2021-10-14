@@ -2,26 +2,26 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name = "Outreachbot")
-public class Outreach extends OpMode {
+public class Robot_main extends OpMode {
+    DcMotor frontRight;
+    DcMotor frontLeft;
     DcMotor right;
     DcMotor left;
-    Servo wings;
 
-    public Outreach() {
+    public Robot_main() {
     }
 
     @Override
     public void init() {
         right = hardwareMap.dcMotor.get("right");
         left = hardwareMap.dcMotor.get("left");
-        wings = hardwareMap.servo.get("wings");
+        frontRight = hardwareMap.dcMotor.get("frontRight");
+        frontLeft = hardwareMap.dcMotor.get("frontLeft");
 
         right.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -37,20 +37,13 @@ public class Outreach extends OpMode {
         //front is neg, back is pos
         float gamepad1LeftY = -gamepad1.left_stick_y;
         float gamepad1RightY = -gamepad1.right_stick_y;
-
+        // above is ftc stuff, i should go look at it :)
+        float[] array=PaulMath.omniCalc(gamepad1.right_stick_y, gamepad1.right_stick_x, gamepad1.left_stick_x);
         left.setPower(gamepad1LeftY);
         right.setPower(gamepad1RightY);
 
         //uses gamepad to control1 wing position
-        if (gamepad1.a) {
-            wings.setPosition(.1);
-        }
-        //while robot is running, wings open
-        else if (gamepad1LeftY != 0 && gamepad1RightY != 0) {
-            wings.setPosition(.1);
-        } else {
-            wings.setPosition(.4);
-        }
+
     }
 }
 
