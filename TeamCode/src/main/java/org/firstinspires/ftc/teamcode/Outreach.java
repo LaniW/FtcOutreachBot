@@ -32,11 +32,8 @@ public class Outreach extends OpMode {
 
     @Override
     public void loop() {
-        // left stick controls direction
-        // right stick X controls rotation
-        //front is neg, back is pos
-        float gamepad1LeftY = -gamepad1.left_stick_y;
-        float gamepad1RightY = -gamepad1.right_stick_y;
+        float gamepad1LeftY = gamepad1.left_stick_y;
+        float gamepad1RightY = gamepad1.right_stick_y;
 
         left.setPower(gamepad1LeftY);
         right.setPower(gamepad1RightY);
