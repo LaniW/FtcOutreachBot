@@ -14,13 +14,16 @@ public class Outreach extends OpMode {
     DcMotor left;
     Servo wings;
 
+    public Outreach() {
+    }
+
     @Override
     public void init() {
         right = hardwareMap.dcMotor.get("right");
         left = hardwareMap.dcMotor.get("left");
         wings = hardwareMap.servo.get("wings");
 
-        //right.setDirection(DcMotorSimple.Direction.REVERSE);
+        right.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -29,9 +32,11 @@ public class Outreach extends OpMode {
 
     @Override
     public void loop() {
-        // tank drive! left stick controls left motor and right stick controls right motor
-        float gamepad1LeftY = gamepad1.left_stick_y;
-        float gamepad1RightY = gamepad1.right_stick_y;
+        // left stick controls direction
+        // right stick X controls rotation
+        //front is neg, back is pos
+        float gamepad1LeftY = -gamepad1.left_stick_y;
+        float gamepad1RightY = -gamepad1.right_stick_y;
 
         left.setPower(gamepad1LeftY);
         right.setPower(gamepad1RightY);
