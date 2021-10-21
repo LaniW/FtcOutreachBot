@@ -23,7 +23,7 @@ public class Outreach extends OpMode {
         left = hardwareMap.dcMotor.get("left");
         wings = hardwareMap.servo.get("wings");
 
-        right.setDirection(DcMotorSimple.Direction.REVERSE);
+        //right.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
